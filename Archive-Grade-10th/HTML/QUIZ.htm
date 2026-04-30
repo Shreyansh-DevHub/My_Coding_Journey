@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Fun 10th Grade Quiz</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      color: #000;
+      margin: 0;
+      padding: 10px;
+    }
+    .container {
+      max-width: 600px;
+      margin: 20px auto;
+      background: #ffffff;
+      border: 1px solid #ccc;
+      padding: 16px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 12px;
+    }
+    .question {
+      margin-bottom: 16px;
+      padding: 10px;
+      background: #fff;
+      border: 1px solid #ddd;
+    }
+    .question p {
+      margin: 0 0 8px;
+      font-weight: normal;
+    }
+    label {
+      display: block;
+      margin-bottom: 6px;
+    }
+    button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      font-size: 14px;
+      border: 1px solid #888;
+      background: #e0e0e0;
+      color: #000;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #d0d0d0;
+    }
+    #result {
+      margin-top: 14px;
+      text-align: center;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>My School Quiz</h1>
+
+
+    <div class="question">
+      <p>1. What is the capital of France?</p>
+      <label><input type="radio" name="q1" value="0"> Berlin</label>
+      <label><input type="radio" name="q1" value="1"> Paris</label>
+      <label><input type="radio" name="q1" value="0"> Rome</label>
+    </div>
+
+    <div class="question">
+      <p>2. Which planet is known as the Red Planet?</p>
+      <label><input type="radio" name="q2" value="0"> Venus</label>
+      <label><input type="radio" name="q2" value="1"> Mars</label>
+      <label><input type="radio" name="q2" value="0"> Jupiter</label>
+    </div>
+
+    <div class="question">
+      <p>3. What is 5 × 6?</p>
+      <label><input type="radio" name="q3" value="0"> 25</label>
+      <label><input type="radio" name="q3" value="0"> 60</label>
+      <label><input type="radio" name="q3" value="1"> 30</label>
+    </div>
+
+    <button onclick="checkAnswers()">Check Answers</button>
+    <p id="result"></p>
+  </div>
+
+  <script>
+    function checkAnswers() {
+      let score = 0;
+      const answers = [
+        document.querySelector('input[name="q1"]:checked'),
+        document.querySelector('input[name="q2"]:checked'),
+        document.querySelector('input[name="q3"]:checked')
+      ];
+
+      answers.forEach((choice) => {
+        if (choice && choice.value === '1') {
+          score += 1;
+        }
+      });
+
+      if (answers.some(choice => !choice)) {
+        document.getElementById('result').innerText = 'Please answer all questions first!';
+      } else {
+        document.getElementById('result').innerText = 'Nice job! You got ' + score + ' out of 3 correct.';
+      }
+    }
+  </script>
+</body>
+</html>
