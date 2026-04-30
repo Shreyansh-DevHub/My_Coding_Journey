@@ -9,7 +9,7 @@ They are beginner projects in **HTML** and **Python**. The code is simple becaus
 ## HTML Project
 
 ### Quiz Website
-- A small quiz with one question (capital of France).
+- A small quiz.
 - Made using plain HTML and a little JavaScript.
 
 ---
